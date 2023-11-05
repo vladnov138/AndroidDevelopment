@@ -7,3 +7,4 @@
 Можно предусмотреть кнопку "Сброс" для показа фильмов сначала.
 
 ## Демонстрация
+![alt demo](https://github.com/vladnov138/AndroidDevelopment/blob/main/RandomFilm/src/Screen_recording_20231105_180728.webm)
