@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">RandomFilm</string>
+    <string name="click">Select random film</string>
+    <string name="reset">Reset</string>
+    <string name="initial_text">Press button to choose a film</string>
+    <string-array name="movies">
+        <item>The Shawshank Redemption</item>
+        <item>Inception</item>
+        <item>Pulp Fiction</item>
+        <item>The Lord of the Rings: The Fellowship of the Ring</item>
+        <item>Forrest Gump</item>
+        <item>Interstellar</item>
+        <item>The Matrix</item>
+        <item>The Dark Knight</item>
+        <item>The Godfather</item>
+        <item>Gladiator</item>
+    </string-array>
+</resources>
