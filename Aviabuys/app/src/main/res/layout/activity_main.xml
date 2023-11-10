@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/fromLabel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/from_city" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_from"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/fromLabel"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/fromLabel"
+            android:gravity="center">
+
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete_from_city_tv"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:hint="@string/from_city" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/toLabel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fromLabel"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/to_city" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_layout_to"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/toLabel"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toEndOf="@id/toLabel"
+            android:gravity="center">
+
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete_to_city_tv"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:hint="@string/to_city" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/departureDateLabel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toLabel"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/departure_date" />
+
+        <EditText
+            android:id="@+id/departureDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/departureDateLabel"
+            android:layout_marginStart="30dp"
+            android:focusable="false"
+            android:layout_toEndOf="@id/departureDateLabel"
+            android:ems="10"
+            android:hint="@string/departure_date"
+            android:inputType="date"
+            android:autofillHints="@string/departure_date" />
+
+        <TextView
+            android:id="@+id/arrivingDateLabel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/departureDateLabel"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/arriving_date" />
+
+        <EditText
+            android:id="@+id/arrivingDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/departureDate"
+            android:layout_alignBaseline="@id/arrivingDateLabel"
+            android:layout_marginStart="30dp"
+            android:focusable="false"
+            android:layout_toEndOf="@id/arrivingDateLabel"
+            android:ems="10"
+            android:hint="@string/arriving_date"
+            android:inputType="date" />
+
+        <TextView
+            android:id="@+id/adultslabel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/arrivingDateLabel"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/adults" />
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/adultslabel"
+            android:layout_marginStart="30dp"
+            android:layout_toEndOf="@id/adultslabel"
+            android:hint="@string/adults"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/childrenLabel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/adultslabel"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/children" />
+
+        <EditText
+            android:id="@+id/childrenEtNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/childrenLabel"
+            android:layout_marginStart="30dp"
+            android:layout_toEndOf="@id/childrenLabel"
+            android:hint="@string/children"
+            android:ems="10"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/babiesLabel"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/childrenLabel"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/babies" />
+
+        <EditText
+            android:id="@+id/babiesEtNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/babiesLabel"
+            android:layout_marginStart="30dp"
+            android:layout_toEndOf="@id/babiesLabel"
+            android:hint="@string/babies"
+            android:ems="10"
+            android:inputType="number" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="532dp"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

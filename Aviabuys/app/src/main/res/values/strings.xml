@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Aviabuys</string>
+    <string name="from_city">From</string>
+    <string name="to_city">To</string>
+    <string name="departure_date">Departure date</string>
+    <string name="arriving_date">Arriving date</string>
+    <string name="adults">Adults</string>
+    <string name="children">Children</string>
+    <string name="babies">Babies</string>
+    <string name="submit">Submit</string>
+    <string-array name="cities">
+        <item>Saint-Petersburg</item>
+        <item>Moscow</item>
+        <item>Novosibirsk</item>
+        <item>Irkutsk</item>
+        <item>Krasnoyarsk</item>
+        <item>Dubai</item>
+        <item>Vladivostok</item>
+    </string-array>
+</resources>
