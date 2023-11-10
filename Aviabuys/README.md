@@ -17,3 +17,10 @@
 В качестве ответа приложите необходимые XML-файлы и отображение на устройства/среде разработки
 
 # Демонстрация
+
+<div style="display: flex;">
+  <img src='assets/demo1.png' width='200'>
+  <img src='assets/demo2.png' width='200'>
+  <img src='assets/demo3.png' width='200'>
+  <img src='assets/demo4.png' width='200'>
+</div>
