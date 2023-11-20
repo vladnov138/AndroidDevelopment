@@ -6,172 +6,215 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/fromLabel"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/from_city"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_from"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="240dp"
+        android:layout_height="64dp"
+        android:layout_alignBaseline="@id/fromLabel"
+        android:layout_toEndOf="@id/fromLabel"
+        android:gravity="left"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/fromLabel"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/from_city" />
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_from_city_tv"
+            android:layout_width="230dp"
+            android:layout_height="55dp"
+            android:hint="@string/from_city" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout_from"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/fromLabel"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@id/fromLabel"
-            android:gravity="center">
+    <TextView
+        android:id="@+id/toLabel"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fromLabel"
+        android:layout_marginTop="64dp"
+        android:text="@string/to_city"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fromLabel" />
 
-            <AutoCompleteTextView
-                android:id="@+id/auto_complete_from_city_tv"
-                android:layout_width="250dp"
-                android:layout_height="55dp"
-                android:hint="@string/from_city" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_layout_to"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="240dp"
+        android:layout_height="64dp"
+        android:layout_alignBaseline="@id/toLabel"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/toLabel"
+        android:gravity="left"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_from">
 
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_to_city_tv"
+            android:layout_width="230dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/to_city"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_from" />
 
-        <TextView
-            android:id="@+id/toLabel"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/fromLabel"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="@string/to_city" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout_to"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/toLabel"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="10dp"
-            android:layout_toEndOf="@id/toLabel"
-            android:gravity="center">
+    <TextView
+        android:id="@+id/departureDateLabel"
+        android:layout_width="71dp"
+        android:layout_height="34dp"
+        android:layout_below="@id/toLabel"
+        android:layout_marginTop="48dp"
+        android:text="@string/departure_date"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toLabel" />
 
-            <AutoCompleteTextView
-                android:id="@+id/auto_complete_to_city_tv"
-                android:layout_width="250dp"
-                android:layout_height="55dp"
-                android:hint="@string/to_city" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/departureDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/departureDateLabel"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/departureDateLabel"
+        android:autofillHints="@string/departure_date"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="@string/departure_date"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_to" />
 
-        <TextView
-            android:id="@+id/departureDateLabel"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/toLabel"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="@string/departure_date" />
+    <EditText
+        android:id="@+id/arrivingDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/departureDate"
+        android:layout_alignBaseline="@id/arrivingDateLabel"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/arrivingDateLabel"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="@string/arriving_date"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/departureDate" />
 
-        <EditText
-            android:id="@+id/departureDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/departureDateLabel"
-            android:layout_marginStart="30dp"
-            android:focusable="false"
-            android:layout_toEndOf="@id/departureDateLabel"
-            android:ems="10"
-            android:hint="@string/departure_date"
-            android:inputType="date"
-            android:autofillHints="@string/departure_date" />
+    <TextView
+        android:id="@+id/arrivingDateLabel"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/departureDateLabel"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="38dp"
+        android:text="@string/arriving_date"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/departureDateLabel" />
 
-        <TextView
-            android:id="@+id/arrivingDateLabel"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/departureDateLabel"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="@string/arriving_date" />
+    <TextView
+        android:id="@+id/babiesLabel"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/childrenLabel"
+        android:layout_marginTop="48dp"
+        android:text="@string/babies"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/childrenLabel" />
 
-        <EditText
-            android:id="@+id/arrivingDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/departureDate"
-            android:layout_alignBaseline="@id/arrivingDateLabel"
-            android:layout_marginStart="30dp"
-            android:focusable="false"
-            android:layout_toEndOf="@id/arrivingDateLabel"
-            android:ems="10"
-            android:hint="@string/arriving_date"
-            android:inputType="date" />
+    <EditText
+        android:id="@+id/babiesEtNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/babiesLabel"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/babiesLabel"
+        android:ems="10"
+        android:hint="@string/babies"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/childrenEtNumber" />
 
-        <TextView
-            android:id="@+id/adultslabel"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/arrivingDateLabel"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="@string/adults" />
+    <TextView
+        android:id="@+id/childrenLabel"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/adultslabel"
+        android:layout_marginTop="48dp"
+        android:text="@string/children"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adultslabel" />
 
-        <EditText
-            android:id="@+id/editTextNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/adultslabel"
-            android:layout_marginStart="30dp"
-            android:layout_toEndOf="@id/adultslabel"
-            android:hint="@string/adults"
-            android:ems="10"
-            android:inputType="number" />
+    <EditText
+        android:id="@+id/childrenEtNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/childrenLabel"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/childrenLabel"
+        android:ems="10"
+        android:hint="@string/children"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
 
-        <TextView
-            android:id="@+id/childrenLabel"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/adultslabel"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="@string/children" />
+    <TextView
+        android:id="@+id/adultslabel"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/arrivingDateLabel"
+        android:layout_marginTop="44dp"
+        android:text="@string/adults"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/arrivingDateLabel" />
 
-        <EditText
-            android:id="@+id/childrenEtNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/childrenLabel"
-            android:layout_marginStart="30dp"
-            android:layout_toEndOf="@id/childrenLabel"
-            android:hint="@string/children"
-            android:ems="10"
-            android:inputType="number" />
-
-        <TextView
-            android:id="@+id/babiesLabel"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/childrenLabel"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:text="@string/babies" />
-
-        <EditText
-            android:id="@+id/babiesEtNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/babiesLabel"
-            android:layout_marginStart="30dp"
-            android:layout_toEndOf="@id/babiesLabel"
-            android:hint="@string/babies"
-            android:ems="10"
-            android:inputType="number" />
-
-    </RelativeLayout>
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/adultslabel"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:layout_toEndOf="@id/adultslabel"
+        android:ems="10"
+        android:hint="@string/adults"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/arrivingDate" />
 
     <Button
         android:id="@+id/btnSubmit"
@@ -182,5 +225,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="149dp"
+        app:layout_constraintWidth_percent="0.5" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

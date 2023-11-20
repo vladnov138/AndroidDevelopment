@@ -1,16 +1,15 @@
 package com.example.aviabuys
 
 import android.app.DatePickerDialog
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.textfield.TextInputLayout
-import java.util.Calendar
-
+import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var departureCity: String
     private lateinit var arrivingCity: String
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -48,11 +48,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun openDatePicker(dateEt: EditText) {
-        val calendar = Calendar.getInstance()
-        val year = calendar[Calendar.YEAR]
-        val month = calendar[Calendar.MONTH]
-        val day = calendar[Calendar.DAY_OF_MONTH]
+        val curTime = LocalDate.now()
+        val year = curTime.year
+        val month = curTime.monthValue
+        val day = curTime.dayOfMonth
 
         val datePickerDialog = DatePickerDialog(
             this,
