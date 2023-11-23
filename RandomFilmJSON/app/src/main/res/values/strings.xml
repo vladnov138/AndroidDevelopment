@@ -8,4 +8,5 @@
     <string name="btn_select">Generate</string>
     <string name="btn_rst">Reset</string>
     <string name="err">All films watched</string>
+    <string name="start_msg">Press the button to get random movie</string>
 </resources>
