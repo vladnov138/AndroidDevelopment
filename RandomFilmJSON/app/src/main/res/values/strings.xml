@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RandomFilmJSON</string>
+    <string name="film_name">Title:</string>
+    <string name="duration">Duration:</string>
+    <string name="country">Country:</string>
+    <string name="year">Year:</string>
+    <string name="rating">Rating:</string>
+    <string name="btn_select">Generate</string>
+    <string name="btn_rst">Reset</string>
+    <string name="err">All films watched</string>
+</resources>
