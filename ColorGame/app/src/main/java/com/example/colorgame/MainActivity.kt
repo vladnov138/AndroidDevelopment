@@ -2,11 +2,14 @@ package com.example.colorgame
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toDrawable
+import kotlin.random.Random
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +42,15 @@ class MainActivity : AppCompatActivity() {
                 findViewById(R.id.t33)
             )
         )
+        for (row in tiles) {
+            for (tile in row) {
+                val rand = Random(System.currentTimeMillis())
+                Log.d("rand", rand.nextDouble(0.0, 1.0).toString())
+                if (rand.nextDouble(0.0, 1.0) > 0.5) {
+                    changeColor(tile)
+                }
+            }
+        }
     }
 
     private fun getCoordFromString(s: String): Coord {
@@ -60,7 +72,6 @@ class MainActivity : AppCompatActivity() {
     fun onClick(v: View) {
         val coord = getCoordFromString(v.tag.toString())
         changeColor(v)
-
         for (i in 0..3) {
             changeColor(tiles[coord.x][i])
             changeColor(tiles[i][coord.y])
