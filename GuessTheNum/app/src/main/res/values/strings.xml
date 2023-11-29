@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GuessTheNum</string>
+    <string name="edit_text1">Введите нижнюю границу</string>
+    <string name="edit_text2">Введите верхнюю границу</string>
+    <string name="btn_select">Загадал</string>
+    <string name="btn_correct">Верно</string>
+    <string name="btn_more">Больше</string>
+    <string name="btn_less">Меньше</string>
+</resources>
