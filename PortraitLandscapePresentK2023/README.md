@@ -9,5 +9,5 @@
 
 <div style="display: flex;">
   <img src='assets/demo1.png' width='200'>
-  <img src='assets/demo2.png' width='200'>
+  <img src='assets/demo2.png' width='400' height='250'>
 </div>
