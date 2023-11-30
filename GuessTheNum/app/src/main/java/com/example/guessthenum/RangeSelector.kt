@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.guessthenum.databinding.FragmentRangeSelectorBinding
 
 /**
@@ -29,15 +30,18 @@ class RangeSelector : Fragment() {
     ): View? {
         viewBinding = FragmentRangeSelectorBinding.inflate(inflater, container, false)
         viewBinding.button.setOnClickListener {
-            Log.d("fr", "test")
-            val minRange = viewBinding.editTextNumber.text.toString().toDouble()
-            val maxRange = viewBinding.editTextNumber2.text.toString().toDouble()
-            val newFragment = NumberGuesser.newInstance(minRange, maxRange)
+            val minRange = viewBinding.editTextNumber.text.toString()
+            val maxRange = viewBinding.editTextNumber2.text.toString()
+            if (minRange.isEmpty() || maxRange.isEmpty()) {
+                Toast.makeText(requireActivity(), "Заполните диапазоны", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+            val newFragment = NumberGuesser.newInstance(minRange.toInt(), maxRange.toInt())
             val transaction = requireActivity().supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragmentContainerView, newFragment)
-            transaction.addToBackStack(null)
+            transaction.addToBackStack(this.toString())
             transaction.commit()
-            Log.d("fr", "out")
         }
         return viewBinding.root
     }

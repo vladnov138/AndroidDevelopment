@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.guessthenum.databinding.FragmentNumberGuesserBinding
 import com.example.guessthenum.databinding.FragmentRangeSelectorBinding
 
@@ -18,15 +19,16 @@ private const val ARG_PARAM2 = "maxRange"
  * create an instance of this fragment.
  */
 class NumberGuesser private constructor() : Fragment() {
-    private var minRange: Double = 0.0
-    private var maxRange: Double = 0.0
-    private var guessedNumber: Double = 0.0
+    private var minRange = 0
+    private var maxRange = 0
+    private var guessedNumber = 0
     private lateinit var viewBinding: FragmentNumberGuesserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        minRange = requireArguments().getDouble(ARG_PARAM1)
-        maxRange = requireArguments().getDouble(ARG_PARAM2)
+        // Чтобы не включительно
+        minRange = requireArguments().getInt(ARG_PARAM1) + 1
+        maxRange = requireArguments().getInt(ARG_PARAM2)
     }
 
     override fun onCreateView(
@@ -36,13 +38,22 @@ class NumberGuesser private constructor() : Fragment() {
         viewBinding = FragmentNumberGuesserBinding.inflate(inflater, container, false)
         guessedNumber = countGuessedNumber()
         showGuessedNumber()
-        viewBinding.btnCorrect.setOnClickListener(this::commitRangeSelector)
+        viewBinding.btnCorrect.setOnClickListener {
+            Toast.makeText(requireActivity(), "Yeah! Computer win!", Toast.LENGTH_SHORT).show()
+            commitRangeSelector(it)
+        }
         viewBinding.btnLess.setOnClickListener {
+            if (maxRange == guessedNumber) {
+                Toast.makeText(requireActivity(), "Вы что-то путаете", Toast.LENGTH_SHORT).show()
+            }
             maxRange = guessedNumber
             guessedNumber = countGuessedNumber()
             showGuessedNumber()
         }
         viewBinding.btnMore.setOnClickListener {
+            if (minRange == guessedNumber) {
+                Toast.makeText(requireActivity(), "Вы что-то путаете", Toast.LENGTH_LONG).show()
+            }
             minRange = guessedNumber
             guessedNumber = countGuessedNumber()
             showGuessedNumber()
@@ -51,13 +62,17 @@ class NumberGuesser private constructor() : Fragment() {
     }
 
     private fun commitRangeSelector(v: View) {
-
+        val newFragment = RangeSelector()
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentContainerView, newFragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     private fun countGuessedNumber() = (maxRange - minRange) / 2 + minRange
 
     private fun showGuessedNumber() {
-        viewBinding.textView.text = guessedNumber.toString()
+        viewBinding.textView.text = "Это число $guessedNumber?"
     }
 
     companion object {
@@ -70,11 +85,11 @@ class NumberGuesser private constructor() : Fragment() {
          * @return A new instance of fragment NumberGuesser.
          */
         @JvmStatic
-        fun newInstance(minRange: Double, maxRange: Double) =
+        fun newInstance(minRange: Int, maxRange: Int) =
             NumberGuesser().apply {
                 arguments = Bundle().apply {
-                    putDouble(ARG_PARAM1, minRange)
-                    putDouble(ARG_PARAM2, maxRange)
+                    putInt(ARG_PARAM1, minRange)
+                    putInt(ARG_PARAM2, maxRange)
                 }
             }
     }
