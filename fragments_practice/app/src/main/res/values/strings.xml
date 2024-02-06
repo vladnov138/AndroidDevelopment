@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">fragments_practice</string>
+    <array name="langs">
+        <item>Russian</item>
+        <item>English</item>
+        <item>Spanish</item>
+        <item>Chinese</item>
+    </array>
+</resources>
