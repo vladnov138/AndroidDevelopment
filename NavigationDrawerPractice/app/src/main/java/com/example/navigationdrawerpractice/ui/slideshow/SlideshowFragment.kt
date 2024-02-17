@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.navigationdrawerpractice.databinding.FragmentSlideshowBinding
 import com.example.navigationdrawerpractice.ui.slide.SlideFragment
+import com.google.android.material.tabs.TabLayoutMediator
 
 class SlideshowFragment : Fragment() {
 
@@ -27,6 +28,9 @@ class SlideshowFragment : Fragment() {
         val root: View = binding.root
 
         binding.pager.adapter = SlideAdapter(this)
+        TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
+            tab.text = "Slide $position"
+        }.attach()
         return root
     }
 
