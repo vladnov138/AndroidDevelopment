@@ -24,12 +24,20 @@ class SlideshowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val slideshowViewModel = ViewModelProvider(this)[SlideshowViewModel::class.java]
+
         _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val slideAdapter = SlideAdapter(this)
         binding.pager.adapter = SlideAdapter(this)
+
+        slideshowViewModel.tabs.observe(viewLifecycleOwner) {
+            slideAdapter.items = it
+        }
+
         TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
-            tab.text = "Slide $position"
+            tab.text = slideshowViewModel.tabs.value?.get(position)?.title
         }.attach()
         return root
     }
@@ -40,12 +48,18 @@ class SlideshowFragment : Fragment() {
     }
 
     class SlideAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+        var items: List<Tab> = emptyList()
+            set(value) {
+                field = value
+                notifyDataSetChanged()
+            }
+
         override fun getItemCount(): Int {
-            return 100
+            return items.size
         }
 
         override fun createFragment(position: Int): Fragment {
-            return SlideFragment.newInstance(position)
+            return SlideFragment.newInstance(items[position].contentId)
         }
 
     }

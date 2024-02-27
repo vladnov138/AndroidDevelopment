@@ -5,9 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SlideshowViewModel : ViewModel() {
+    private val _tabs = MutableLiveData<List<Tab>>()
+    val tabs = _tabs
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is slideshow Fragment"
+    private val folders = listOf("All", "Work", "Personal")
+
+    init {
+//        _tabs.value = List(100) {
+//            Tab("Title: $it", it)
+//        }
+        _tabs.value = folders.mapIndexed { idx, title -> Tab(title, idx) }
     }
-    val text: LiveData<String> = _text
 }
+
+data class Tab(
+    val title: String,
+    val contentId: Int,
+)
