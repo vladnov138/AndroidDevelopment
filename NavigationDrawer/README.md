@@ -14,6 +14,6 @@
 # Демонстрация
 
 <div style="display: flex;">
-  <img src='assets/demo1.png' width='200'>
-  <img src='assets/demo2.png' width='200'>
+  <img src='assets/demo1.jpg' width='200'>
+  <img src='assets/demo2.jpg' width='200'>
 </div>
