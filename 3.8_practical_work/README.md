@@ -14,4 +14,6 @@
 - Button с ID ButtonBack и надписью Back, которая осуществляет навигацию возврат по стеку.
 
 - # Демонстрация
-- ![Screenshot_1709047422](https://github.com/vladnov138/AndroidDevelopment/assets/113700660/148cca61-650a-4036-9cdd-f945a94f827f)
+<div style="display: flex;">
+  <img src='assets/demo1.png' width='200'>
+</div>
