@@ -1,0 +1,39 @@
+{
+  "movies": [
+    {
+      "title": "Inception",
+      "duration": "2 hours 28 minutes",
+      "country": ["USA", "Britain"],
+      "year": "2010",
+      "rating": "8.8"
+    },
+    {
+      "title": "Forrest Gump",
+      "duration": "2 hours 22 minutes",
+      "country": ["USA"],
+      "year": "1994",
+      "rating": "8.8"
+    },
+    {
+      "title": "Interstellar",
+      "duration": "2 hours 49 minutes",
+      "country": ["USA", "UK"],
+      "year": "2014",
+      "rating": "8.7"
+    },
+    {
+      "title": "The Matrix",
+      "duration": "2 hours 16 minutes",
+      "country": ["USA", "Australia"],
+      "year": "1994",
+      "rating": "8.7"
+    },
+    {
+      "title": "The Godfather",
+      "duration": "2 hours 55 minutes",
+      "country": ["USA"],
+      "year": "2022",
+      "rating": "9.2"
+    }
+  ]
+}

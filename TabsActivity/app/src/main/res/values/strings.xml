@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TabsActivity</string>
+    <string name="duration">Duration:</string>
+    <string name="country">Country:</string>
+    <string name="year">Year:</string>
+    <string name="rating">Rating:</string>
+</resources>
