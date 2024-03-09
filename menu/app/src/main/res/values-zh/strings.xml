@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ru">俄文</string>
+    <string name="en">英語</string>
+    <string name="zh">中國人</string>
+    <string name="hello">你好世界！</string>
+</resources>
