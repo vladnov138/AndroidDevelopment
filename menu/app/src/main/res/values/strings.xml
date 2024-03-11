@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">menu</string>
+    <string name="app_name" translatable="false">menu</string>
+    <string name="ru">Russian</string>
+    <string name="en">English</string>
+    <string name="zh">Chinese</string>
+    <string name="city">City</string>
+    <string name="temperature">Temperature</string>
+    <string name="feels_like">Feels like</string>
+    <string name="pressure">Pressure</string>
+    <string name="wind_speed">Wind speed</string>
 </resources>
