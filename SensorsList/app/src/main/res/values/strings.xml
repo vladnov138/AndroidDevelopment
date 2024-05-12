@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SensorsList</string>
+    <string-array name="sensors">
+        <item>Датчики окружающей среды</item>
+        <item>Датчики положения устройства</item>
+        <item>Датчики состояния человека</item>
+    </string-array>
+</resources>
