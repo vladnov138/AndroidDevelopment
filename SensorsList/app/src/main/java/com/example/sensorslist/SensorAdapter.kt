@@ -1,6 +1,7 @@
 package com.example.sensorslist
 
 import android.hardware.Sensor
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +32,7 @@ class SensorAdapter(
         return SensorViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: SensorAdapter.SensorViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SensorViewHolder, position: Int) {
         holder.name?.text = sensors[position].name
     }
 

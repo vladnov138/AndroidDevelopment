@@ -3,6 +3,7 @@ package com.example.sensorslist
 import android.hardware.Sensor
 import android.hardware.SensorManager
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+        binding.sensorsList.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         val adapter = ArrayAdapter.createFromResource(this, R.array.sensors, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinner.adapter = adapter
@@ -83,8 +85,8 @@ class MainActivity : AppCompatActivity() {
         }
         val sensors = mutableListOf<Sensor>()
         for (sensorName in sensorNames) {
-            val sensor = sensorManager.getDefaultSensor(sensorName)
-            sensor?.let { sensors.add(it) }
+            val sensor = sensorManager.getSensorList(sensorName)
+            sensor?.let { sensors.addAll(it) }
         }
         binding.sensorsList.adapter = SensorAdapter(sensors)
     }
